@@ -1,8 +1,10 @@
 # Core dependencies for AI Video Essay Pipeline
-# Pin versions for reproducibility; adjust as needed for experimentation.
 # Updated ADK dependency: use official PyPI package for stable release
 google-adk
 python-dotenv>=1.0
 PyYAML>=6.0
 pytest>=8.0
 litellm
+pluggy>=1.5,<2.0
+pygments>=2.18
+iniconfig>=2.0
