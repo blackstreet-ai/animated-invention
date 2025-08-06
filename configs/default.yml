@@ -1,0 +1,24 @@
+# Default configuration for AI Video Essay Pipeline
+# -----------------------------------------------------------------------------
+# Adjust values per run or override via command-line args / env vars.
+# This file is parsed with PyYAML.
+# -----------------------------------------------------------------------------
+
+video:
+  length_minutes: 10              # Target duration
+  resolution: "1920x1080"         # Output resolution
+  style: "documentary"           # Narrative/visual style hint
+
+agents:
+  # Model or API-specific parameters can be nested here later
+  scriptwriter:
+    model: "gemini-pro"
+  tts:
+    provider: "google"
+
+paths:
+  assets_dir: "assets/"
+  output_dir: "output/"
+
+logging:
+  level: "INFO"                   # DEBUG for verbose
