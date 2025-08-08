@@ -2,9 +2,14 @@
 
 > _“Automate the storyteller.”_
 
-This project is a **learning-focused, multi-agent system** that converts a topic idea into a finished video essay using Google’s **Agent Development Kit (ADK)**.  Each pipeline stage is handled by a specialised agent—research, script writing, visuals, audio, editing, and quality control.
+This project is a **learning-focused, multi-agent system** that converts a topic idea into a finished video essay using Google’s **Agent Development Kit (ADK)**.
 
-The repository currently contains a **stub scaffold**: heavily commented code with minimal logic so you can explore ADK patterns before integrating real models and APIs.
+Pipeline highlights:
+* **TopicGenerationAgent** – optional orchestrator that discovers & scores fresh video-essay topics (idea-discovery mode).
+* Core production agents – Research, Scriptwriter, Visual, Audio, Editor, Quality-Control.
+* ADK-style `WorkflowManager` with dependency graph, retries, and parallel layers.
+
+The repo started as a stub scaffold but now contains *working orchestration logic* with extensible stubs you can gradually replace with real implementations.
 
 ---
 
@@ -14,8 +19,11 @@ The repository currently contains a **stub scaffold**: heavily commented code wi
 # Install dependencies (ideally in a virtualenv)
 python -m pip install -r requirements.txt
 
-# Run the stub pipeline (writes placeholder output)
+# Run the production pipeline (writes placeholder outputs for now)
 python scripts/run_pipeline.py --topic "The Fermi Paradox"
+
+# (Optional) Run *idea-discovery* mode – generates topic ideas first, then full pipeline
+python scripts/run_pipeline.py --discover-topics --topic "The Fermi Paradox"
 ```
 
 You should see log output showing each agent executing and a final JSON-like state.
