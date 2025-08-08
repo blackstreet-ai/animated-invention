@@ -28,12 +28,13 @@ from video_pipeline.agents import (  # noqa: E402
     AudioAgent,
     EditorAgent,
     QualityControlAgent,
+    TopicGenerationAgent,
 )
 from video_pipeline.core.state import PipelineState  # noqa: E402
 from video_pipeline.workflows import WorkflowManager  # noqa: E402
 
 
-AGENT_ORDER: List[type] = [
+DEFAULT_AGENT_ORDER: List[type] = [
     ResearchAgent,
     ScriptwriterAgent,
     VisualAgent,
@@ -51,6 +52,11 @@ def main() -> None:  # noqa: D401
         default="configs/default.yml",
         help="Path to YAML config file (default: configs/default.yml)",
     )
+    parser.add_argument(
+        "--discover-topics",
+        action="store_true",
+        help="Run TopicGenerationAgent first to generate topic ideas before the main pipeline.",
+    )
     args = parser.parse_args()
 
     # Load YAML config (unused for now but demonstrates future pattern)
@@ -63,8 +69,14 @@ def main() -> None:  # noqa: D401
 
     logging.basicConfig(level=config.get("logging", {}).get("level", "INFO"))
 
+    # Build agent list based on CLI flag
+    agent_order: List[type] = DEFAULT_AGENT_ORDER.copy()
+    if args.discover_topics:
+        logging.info("Idea-discovery mode enabled – TopicGenerationAgent will run first.")
+        agent_order.insert(0, TopicGenerationAgent)
+
     state = PipelineState(topic=args.topic)
-    manager = WorkflowManager(AGENT_ORDER)
+    manager = WorkflowManager(agent_order)
     final_state = manager.run(state)
 
     logging.info("Pipeline finished. Final state: %s", final_state.to_dict())

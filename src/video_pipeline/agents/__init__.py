@@ -11,3 +11,4 @@ from .visual_agent import VisualAgent  # noqa: F401
 from .audio_agent import AudioAgent  # noqa: F401
 from .editor_agent import EditorAgent  # noqa: F401
 from .qc_agent import QualityControlAgent  # noqa: F401
+from .topic_generation_agent import TopicGenerationAgent  # noqa: F401
