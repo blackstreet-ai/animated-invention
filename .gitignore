@@ -1,0 +1,28 @@
+# -------------------------------------------------------------
+# Global ignores for AI Video Essay Pipeline
+# -------------------------------------------------------------
+# Python cache & venv
+__pycache__/
+*.py[cod]
+.venv/
+
+# IDE / OS
+.idea/
+.DS_Store
+
+# Test outputs
+htmlcov/
+coverage.xml
+
+# MCP servers (Node.js artifacts)
+mcp_servers/node_modules/
+# Logs
+audio/
+video/
+mcp_servers/logs/
+
+# Environment variables
+.env
+
+# Docker
+*.log

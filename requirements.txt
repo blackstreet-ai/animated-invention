@@ -8,3 +8,4 @@ litellm
 pluggy>=1.5,<2.0
 pygments>=2.18
 iniconfig>=2.0
+yt-dlp
