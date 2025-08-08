@@ -104,6 +104,7 @@ except Exception:  # pragma: no cover – SDK may not be present during tests
 # Helper: retry wrapper using LoopAgent
 # ---------------------------------------------------------------------------
 
+
 def _wrap_with_retry(agent: BaseAgent, max_retries: int) -> BaseAgent:
     """Return a LoopAgent that retries *agent* up to *max_retries* times."""
 

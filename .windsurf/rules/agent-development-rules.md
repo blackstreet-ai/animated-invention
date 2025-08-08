@@ -31,7 +31,7 @@ ADK is designed to make agent development feel more like software development, m
 
 ## Documentation and Knowledge Requirements
 - ALWAYS reference the latest Google ADK official documentation first.
-- A documentation file named: `adk-docs.md` exist here: `/Users/gary/Desktop/ComputerScience/blackstreet-agent-development/docs/adk-docs.md`
+- A documentation file named: `adk-docs.md` exist here: `/Users/gary/Desktop/ComputerScience/cc_pipeline_v1/docs/adk-docs.md`
 - Search the web for current ADK examples and best practices when needed
 - If ADK documentation is unclear, search for community examples and state limitations
 - Follow ADK's code-first development approach
